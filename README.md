@@ -63,4 +63,5 @@ This will train the model and then run the prediction and show you the graph of 
 * [Analytics Vidhya](https://www.analyticsvidhya.com/blog/2017/12/fundamentals-of-deep-learning-introduction-to-lstm/)
 * [Towards Data Science](https://towardsdatascience.com/illustrated-guide-to-recurrent-neural-networks-79e5eb8049c9)
 * [colah's blog](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+* [Kaggle Stock Dataset](https://www.kaggle.com/borismarjanovic/price-volume-data-for-all-us-stocks-etfs)
 
