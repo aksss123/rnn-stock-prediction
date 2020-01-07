@@ -6,15 +6,25 @@ This project is a basic attempt at training my own model and came about from my 
 
 For simplification, only the opening price was taken into consideration so the data looked a little more like this:
 
-![Formatted Training Data Head](formatted_training_data_head.png)
+<p align="center">
+  <img width="162" height="330" src="formatted_training_data_head.png">
+</p>
 
 ## Model Design
 
 Recurrent Neural Networks are a good choice of model for problems that work with sequences of information or sequential data. For this reason, RNNs are good for predicting stock data because predictions are largely dependent on prices from previous days. RNNs are fine when dealing with short term input but are less effective when considering input of longer scale or context from long ago. So the solution is this:
 
+![LSTM RNN](Long_Short-Term_Memory.svg)
 
+Long short term memory helps to make little modifications to the info through its cell states. LSTMs help to remember and forget things as they go which makes them useful for this situation. 
 
-The password is hashed and stored in a binary file in lieu of a database for simplicity sake and because it isn't the main focus of the project. 
+The model contains four LSTM layers with dropout regularisation and a single output layer. The model is compiled using the Adam optimization algorithm and loss calculated using mean squared error.
+
+## Results
+
+![Results](Figure_1.png)
+
+The figure above shows the model's predicition of 2017 stock alongside the real stock price.
 
 ## Getting Started
 
@@ -28,36 +38,29 @@ What things you need to install the software and how to install them.
 pip install -r requirements.txt
 ```
 
-Add images to the 'faces' folder as profiles of people you would like the system to be able to recognize. Make sure the file format is either jpg or png.
+You can use your own stock data but will have to make sure it's processed correctly to fit the program.
 
 ## Running
 
 Change directory to the project directory and run the following command:
 
 ```
-python MakeBinaryFile.py
+python model.py
 ```
 
-This sets up the password for the program. You can go in the code and change it to whatever you want. For the program to actually work you will need your own AWS Access Key ID and Secret Access Key as well as your own S3 buckets. To actually run the program just run the following command:
-
-```
-python FacialVoiceLock.py
-```
-
-Instructions will pop up in terminal as you go guiding you through the process of "logging in" using facial and voice recognition.
-
+This will train the model and then run the prediction and show you the graph of the results.
 
 ## Built With
 
-* [face_recognition](https://pypi.org/project/face_recognition/) - Recognize faces from Python or from the command line
-* [OpenCV](https://pypi.org/project/opencv-python/) - Wrapper package for OpenCV python bindings
 * [NumPy](https://numpy.org/) - Useful for higher level mathematical functions
-* [Passlib](https://pypi.org/project/passlib/) - Password hashing library
-* [Boto3](https://pypi.org/project/boto3/) - Amazon Web Services (AWS) Software Development Kit (SDK) for Python
-* [Amazon S3](https://aws.amazon.com/s3/?nc2=h_ql_prod_fs_s3) - Scalable storage in the cloud
-* [Amazon Transcribe](https://aws.amazon.com/transcribe/?nc2=h_ql_prod_ml_ts) - Automatic speech recognition
-* [Amazon Lambda](https://aws.amazon.com/lambda/?nc2=h_ql_prod_cp_lbd) - Run code based on triggers
+* [Matplotlib](https://matplotlib.org/) - Python 2D plotting library
+* [pandas](https://pandas.pydata.org/) - Data structures and data analysis tools for Python
+* [Scikit-learn](https://scikit-learn.org/stable/) - Simple and efficient tools for predictive data analysis
+* [Keras](https://keras.io/) - Open-source neural-network library written in Python
+* [TensorFlow](https://www.tensorflow.org/) - End-to-end open source platform for machine learning
 
 ## Acknowledgements
-* [Tech With Tim](https://techwithtim.net/)
-* [Tech Tunes](https://www.thetechnologyupdates.com/)
+* [Analytics Vidhya](https://www.analyticsvidhya.com/blog/2017/12/fundamentals-of-deep-learning-introduction-to-lstm/)
+* [Towards Data Science](https://towardsdatascience.com/illustrated-guide-to-recurrent-neural-networks-79e5eb8049c9)
+* [colah's blog](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+
