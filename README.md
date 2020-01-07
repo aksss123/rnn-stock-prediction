@@ -1,6 +1,6 @@
 # Stock Predicition Using LSTM RNN
 
-This project is a basic attempt at training my own model and came about from my interest in the fields of computer science and economics and combining the two. This model predicts Apple stock with data from 1984 to 2016 with values for date, open, high, low, close, volume, and open interest.
+This project is a basic attempt at training my own model and came about from my interest in the fields of computer science and economics and combining the two. This model predicts Apple stock with data from 1984 to 2016 with values for date, open, high, low, close, volume, and open interest. The training data consists of a little more than 8000 data points from 1984 to 2016. The testing data is for the year 2017 with a little more than 200 data points.
 
 ![Training Data Head](training_data_head.png)
 
