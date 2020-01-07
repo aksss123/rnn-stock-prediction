@@ -2,9 +2,17 @@
 
 This project is a basic attempt at training my own model and came about from my interest in the fields of computer science and economics and combining the two. This model predicts Apple stock with data from 1984 to 2016 with values for date, open, high, low, close, volume, and open interest.
 
-![Project AWS Usage](diagram.png)
+![Training Data Head](training_data_head.png)
 
-A voice recording is recorded by the program and then automatically uploaded to the S3 bucket in the cloud. This triggers the Lambda function to automatically take the audio file and send it to Amazon Transcribe. Transcribe extracts the speech from the audio and sends the transcription JSON file back to the S3 bucket. The transcription is then pulled from the S3 bucket to the program to check whether it is the correct password.
+For simplification, only the opening price was taken into consideration so the data looked a little more like this:
+
+![Formatted Training Data Head](formatted_training_data_head.png)
+
+## Model Design
+
+Recurrent Neural Networks are a good choice of model for problems that work with sequences of information or sequential data. For this reason, RNNs are good for predicting stock data because predictions are largely dependent on prices from previous days. RNNs are fine when dealing with short term input but are less effective when considering input of longer scale or context from long ago. So the solution is this:
+
+
 
 The password is hashed and stored in a binary file in lieu of a database for simplicity sake and because it isn't the main focus of the project. 
 
